@@ -5,8 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Armor
-{
+public class Armor{
     // instance variables - replace the example below with your own
     private int x;
 
