@@ -1,33 +1,53 @@
-
-/**
- * Write a description of class Potion here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Potion
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Potion
-     */
-    public Potion()
-    {
-        // initialise instance variables
-        x = 0;
+public class Potion extends Item{
+    private int heal;
+    private boolean used;
+    
+    public Potion(){
+        super();
+        heal = 0;
+        used = false;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public Potion(String t, int h){
+        super(t, 0);
+        setHeal(t);
+        setP(t);
+        used = false;
+    }
+    
+    public boolean getUsed(){
+        return used;
+    }
+    
+    public void setUsed(boolean u){
+        used = u;
+    }
+    
+    public int getHeal(){
+        return heal;
+    }
+    
+    public void setHeal(String t){
+        if ( t.equals("full") || t.equals("phoenix") ){
+            heal = 100;
+        }else{
+            heal = 50;;
+        }
+    }
+    
+    public void setP(String t){
+        if ( t.equals("full") ){
+            setPrice(2);
+        }else if ( t.equals("phoenix") ){
+            setPrice(3);
+        }else{
+            setPrice(1);
+        }
+    }
+    
+    public void healHero(Hero h){
+        //h.setHealth(heal);
+        System.out.println("Hero's health has been completely refilled.");
+        used = true;
     }
 }

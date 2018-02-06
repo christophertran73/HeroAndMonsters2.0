@@ -1,10 +1,19 @@
 #BlueJ class context
 comment0.target=Potion
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Potion\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Potion()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Potion\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
-numComments=3
+comment2.params=t\ h
+comment2.target=Potion(java.lang.String,\ int)
+comment3.params=
+comment3.target=boolean\ getUsed()
+comment4.params=u
+comment4.target=void\ setUsed(boolean)
+comment5.params=
+comment5.target=int\ getHeal()
+comment6.params=t
+comment6.target=void\ setHeal(java.lang.String)
+comment7.params=t
+comment7.target=void\ setP(java.lang.String)
+comment8.params=h
+comment8.target=void\ healHero(Hero)
+numComments=9
