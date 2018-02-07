@@ -2,8 +2,10 @@
 comment0.target=Bombs
 comment1.params=
 comment1.target=Bombs()
-comment2.params=
-comment2.target=boolean\ getUsed()
-comment3.params=u
-comment3.target=void\ setUsed(boolean)
-numComments=4
+comment2.params=t
+comment2.target=Bombs(java.lang.String)
+comment3.params=
+comment3.target=boolean\ getUsed()
+comment4.params=u
+comment4.target=void\ setUsed(boolean)
+numComments=5

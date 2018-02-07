@@ -31,7 +31,7 @@ public class Potion extends Item{
         if ( t.equals("full") || t.equals("phoenix") ){
             heal = 100;
         }else{
-            heal = 50;;
+            heal = 50;
         }
     }
     
