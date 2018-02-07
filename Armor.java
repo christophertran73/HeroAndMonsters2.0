@@ -6,7 +6,7 @@ public class Armor extends Item{
         defense = 0;
     }
     
-    public Armor(String t){
+    public Armor(String t, int h){
         super(t, 0);
         setDANDP(t);
     }

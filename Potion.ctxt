@@ -2,8 +2,8 @@
 comment0.target=Potion
 comment1.params=
 comment1.target=Potion()
-comment2.params=t
-comment2.target=Potion(java.lang.String)
+comment2.params=t\ h
+comment2.target=Potion(java.lang.String,\ int)
 comment3.params=
 comment3.target=boolean\ getUsed()
 comment4.params=u
