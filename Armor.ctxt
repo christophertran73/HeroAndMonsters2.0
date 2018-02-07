@@ -2,8 +2,8 @@
 comment0.target=Armor
 comment1.params=
 comment1.target=Armor()
-comment2.params=t\ h
-comment2.target=Armor(java.lang.String,\ int)
+comment2.params=t
+comment2.target=Armor(java.lang.String)
 comment3.params=t
 comment3.target=void\ setDANDP(java.lang.String)
 comment4.params=
