@@ -6,7 +6,7 @@ public class Weapon extends Item{
         attack = 0;
     }
     
-    public Weapon(String t, int h){
+    public Weapon(String t){
         super(t, 0);
         setAANDP(t);
     }
