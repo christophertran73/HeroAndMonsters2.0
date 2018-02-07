@@ -1,10 +1,19 @@
 #BlueJ class context
 comment0.target=Monster
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Monster\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Monster()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Monster\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
-numComments=3
+comment2.params=x\ y
+comment2.target=Monster(int,\ int)
+comment3.params=x\ y\ h
+comment3.target=Monster(int,\ int,\ Hero)
+comment4.params=h
+comment4.target=void\ interact(Hero)
+comment5.params=h
+comment5.target=void\ fight(Hero)
+comment6.params=h
+comment6.target=void\ flee(Hero)
+comment7.params=
+comment7.target=java.lang.String\ getDirection()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

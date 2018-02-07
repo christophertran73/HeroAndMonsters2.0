@@ -8,7 +8,7 @@ public class Potion extends Item{
         used = false;
     }
     
-    public Potion(String t, int h){
+    public Potion(String t){
         super(t, 0);
         setHeal(t);
         setP(t);
@@ -51,3 +51,4 @@ public class Potion extends Item{
         used = true;
     }
 }
+
