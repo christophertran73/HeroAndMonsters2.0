@@ -1,32 +1,30 @@
-
-/**
- * Write a description of class Armor here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Armor{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Armor
-     */
-    public Armor()
-    {
-        // initialise instance variables
-        x = 0;
+public class Armor extends Item{
+    private double defense;
+    
+    public Armor(){
+        super();
+        defense = 0;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public Armor(String t, int h){
+        super(t, 0);
+        setDANDP(t);
+    }
+    
+    public void setDANDP(String t){
+        if ( t.equals("wood") ){
+            defense = .20;
+            setPrice(2);
+        }else if ( t.equals("metal") ){
+            defense = .50;
+            setPrice(3);
+        }else{
+            defense = .10;
+            setPrice(1);
+        }
+    }
+    
+    public double getDef(){
+        return defense;
     }
 }

@@ -1,33 +1,33 @@
-
-/**
- * Write a description of class Weapon here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Weapon
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Weapon
-     */
-    public Weapon()
-    {
-        // initialise instance variables
-        x = 0;
+public class Weapon extends Item{
+    private int attack;
+    
+    public Weapon(){
+        super();
+        attack = 0;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public Weapon(String t, int h){
+        super(t, 0);
+        setAANDP(t);
+    }
+    
+    public void setAANDP(String t){
+        if ( t.equals("ssword") ){
+            attack = (int)(Math.random()*11)+5;
+            setPrice(1);
+        }else if ( t.equals("lsword") ){
+            attack = (int)(Math.random()*11)+10;
+            setPrice(2);
+        }else if ( t.equals("axe") ){
+            attack = (int)(Math.random()*11)+45;
+            setPrice(3);
+        }else{
+            attack = (int)(Math.random()*11);
+            setPrice(0);
+        }
+    }
+    
+    public double getAtt(){
+        return attack;
     }
 }
