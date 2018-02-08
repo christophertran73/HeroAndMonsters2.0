@@ -20,7 +20,7 @@ comment2.params=x\ y
 comment2.target=Enemy(int,\ int)
 comment3.params=x
 comment3.target=void\ setX(int)
-comment3.text=public\ Enemy(int\ x,\ int\ y,\ Hero\ h){\n\ \ \ \ \ \ \ \ xpos\ \=\ x;\n\ \ \ \ \ \ \ \ ypos\ \=\ y;\n\ \ \ \ \ \ \ \ health\ \=\ (int)(Math.random()\ *\ 100)\ +\ 1;\n\ \ \ \ \ \ \ \ strength\ \=\ h.getXP();\n\ \ \ \ \ \ \ \ speed\ \=\ h.getXP();\n\ \ \ \ \ \ \ \ alive\ \=\ true;\n\ \ \ \ \ \ \ \ interacted\ \=\ false;\n}
+comment3.text=public\ Enemy(int\ x,\ int\ y,\ Hero\ h){\r\n\ \ \ \ \ \ \ \ xpos\ \=\ x;\r\n\ \ \ \ \ \ \ \ ypos\ \=\ y;\r\n\ \ \ \ \ \ \ \ health\ \=\ (int)(Math.random()\ *\ 100)\ +\ 1;\r\n\ \ \ \ \ \ \ \ strength\ \=\ h.getXP();\r\n\ \ \ \ \ \ \ \ speed\ \=\ h.getXP();\r\n\ \ \ \ \ \ \ \ alive\ \=\ true;\r\n\ \ \ \ \ \ \ \ interacted\ \=\ false;\r\n}
 comment4.params=y
 comment4.target=void\ setY(int)
 comment5.params=s
