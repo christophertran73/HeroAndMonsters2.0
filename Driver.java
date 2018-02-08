@@ -11,18 +11,22 @@ public class Driver{
         Hero hero = new Hero();
 
         ArrayList<Potion> potions = new ArrayList<Potion>();
-        Potion p1 = new Potion();
-        Potion p2 = new Potion();
-        potions.add(p1);
-        potions.add(p2);
 
         ArrayList<Monster> monsters = new ArrayList<Monster>();
 
         ArrayList<Farmer> farmers = new ArrayList<Farmer>();
         Farmer f1 = new Farmer();
         Farmer f2 = new Farmer();
+        Farmer f3 = new Farmer();
+        Farmer f4 = new Farmer();
+        Farmer f5 = new Farmer();
+        Farmer f6 = new Farmer();
         farmers.add(f1);
         farmers.add(f2);
+        farmers.add(f3);
+        farmers.add(f4);
+        farmers.add(f5);
+        farmers.add(f6);
 
         int worldSize = 15;
 
@@ -34,24 +38,7 @@ public class Driver{
         //fill map with objects
         map[hero.getY()][hero.getX()] = hero;
         printedMap[hero.getY()][hero.getX()] = "H  ";
-        /*for(Monster obj: monsters){
-        while(map[obj.getX()][obj.getY()] != null){
-        obj.setX((int)(Math.random() * worldSize));
-        obj.setY((int)(Math.random() * worldSize)); 
-        }
-        map[obj.getX()][obj.getY()] = obj;
-        printedMap[obj.getX()][obj.getY()] = "M  ";
-        }*//*
-        System.out.println("* The enemies have been placed *");
-        for(Potion obj: potions){
-            while(map[obj.getX()][obj.getY()] != null){
-                obj.setX((int)(Math.random() * worldSize));
-                obj.setY((int)(Math.random() * worldSize)); 
-            }
-            map[obj.getX()][obj.getY()] = obj;
-            printedMap[obj.getX()][obj.getY()] = "P  ";
-        }
-        System.out.println("* The items have been placed *\n");
+        
         for(Farmer obj: farmers){
             while(map[obj.getX()][obj.getY()] != null){
                 obj.setX((int)(Math.random() * worldSize));
@@ -60,6 +47,7 @@ public class Driver{
             map[obj.getX()][obj.getY()] = obj;
             printedMap[obj.getX()][obj.getY()] = "F  ";
         }
+        System.out.println("The farmers have been generated.");
 
         //Storyline intro (add to this)
         System.out.println("Hero begins his journey");
@@ -171,7 +159,7 @@ public class Driver{
                         }
                     } else if(printedMap[i][k] == "F  "){
                         f = (Farmer)map[i][k];
-                        if(f.getInteracted()){
+                        if(f.getInteracted() && h.getShowPpl()){
                             str += printedMap[i][k];
                         } else {
                             str += "–  ";
@@ -261,11 +249,11 @@ public class Driver{
             printedMap[mR.getX()][mR.getY()] = "M  ";
         }
         for(int i=0; i < touchedPos.size(); i+=2){
-            /*if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("M  ")){
+            if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("M  ")){
             m = (Monster)map[touchedPos.get(i)][touchedPos.get(i+1)];
             m.setInteracted(true);
             monsters.add(m);
-            } else *//*
+            } else 
             if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("P  ")){
                 p = (Potion)map[touchedPos.get(i)][touchedPos.get(i+1)];
                 p.setInteracted(true);
@@ -308,4 +296,6 @@ public class Driver{
         }
     }
 }*/
+
+
 
