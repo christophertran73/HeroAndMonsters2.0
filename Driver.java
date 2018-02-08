@@ -1,7 +1,7 @@
 //HAVE A 0 arg constructor and a 2 arg constructor
 /*import java.util.List;
 import java.util.ArrayList;*/
-/*import java.io.*;
+import java.io.*;
 import java.util.*;
 
 public class Driver{
@@ -14,26 +14,6 @@ public class Driver{
 
         //create objects
         Hero hero = new Hero();
-
-        ArrayList<Potion> potions = new ArrayList<Potion>();
-        Potion p1 = new Potion();
-        Potion p2 = new Potion();
-        potions.add(p1);
-        potions.add(p2);
-
-        ArrayList<Monster> monsters = new ArrayList<Monster>();
-        Monster m1 = new Monster();
-        Monster m2 = new Monster();
-        Monster m3 = new Monster();
-        Monster m4 = new Monster();
-        Monster m5 = new Monster();
-        Monster m6 = new Monster();
-        monsters.add(m1);
-        monsters.add(m2);
-        monsters.add(m3);
-        monsters.add(m4);
-        monsters.add(m5);
-        monsters.add(m6);
 
         ArrayList<Farmer> farmers = new ArrayList<Farmer>();
         Farmer f1 = new Farmer();
@@ -50,17 +30,18 @@ public class Driver{
         farmers.add(f6);
 
         //generate the map
+        int worldSize = 15;
         System.out.println("* The map has been generated *");
-        Object map[][] = new Object[10][10];
-        String printedMap[][] = new String[10][10];
+        Object map[][] = new Object[worldSize][worldSize];
+        String printedMap[][] = new String[worldSize][worldSize];
 
         //fill map with objects
         map[hero.getY()][hero.getX()] = hero;
         printedMap[hero.getY()][hero.getX()] = "H  ";
         for(Monster obj: monsters){
             while(map[obj.getX()][obj.getY()] != null){
-                obj.setX((int)(Math.random() * 10));
-                obj.setY((int)(Math.random() * 10));
+                obj.setX((int)(Math.random() * worldSize));
+                obj.setY((int)(Math.random() * worldSize));
             }
             map[obj.getX()][obj.getY()] = obj;
             printedMap[obj.getX()][obj.getY()] = "M  ";
@@ -68,8 +49,8 @@ public class Driver{
         System.out.println("* The enemies have been placed *");
         for(Potion obj: potions){
             while(map[obj.getX()][obj.getY()] != null){
-                obj.setX((int)(Math.random() * 10));
-                obj.setY((int)(Math.random() * 10));
+                obj.setX((int)(Math.random() * worldSize));
+                obj.setY((int)(Math.random() * worldSize));
             }
             map[obj.getX()][obj.getY()] = obj;
             printedMap[obj.getX()][obj.getY()] = "P  ";
@@ -77,8 +58,8 @@ public class Driver{
         System.out.println("* The items have been placed *\n");
         for(Farmer obj: farmers){
             while(map[obj.getX()][obj.getY()] != null){
-                obj.setX((int)(Math.random() * 10));
-                obj.setY((int)(Math.random() * 10));
+                obj.setX((int)(Math.random() * worldSize));
+                obj.setY((int)(Math.random() * worldSize));
             }
             map[obj.getX()][obj.getY()] = obj;
             printedMap[obj.getX()][obj.getY()] = "F  ";
@@ -181,8 +162,8 @@ public class Driver{
         Monster m;
         Farmer f;
         Potion p;
-        for(int i=0; i<10; i++){
-            for(k=0; k<10; k++){
+        for(int i=0; i<worldSize; i++){
+            for(k=0; k<worldSize; k++){
                 if(map[i][k] == null){
                     str += "–  ";
                 } else {
@@ -302,6 +283,6 @@ public class Driver{
             m.interact(h);
         }
     }
-}*/
+}
 
 
