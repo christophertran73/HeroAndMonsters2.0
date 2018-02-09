@@ -8,6 +8,10 @@ public class Hero{
     private int hides;
     private int xp;
     private boolean showPpl;
+    private int nofH = 0;
+    private int nofF = 0;
+    private int nofP = 0;
+    private int numBombs = 0;
 
     public Hero(){
         xpos = 0;
@@ -15,7 +19,7 @@ public class Hero{
         health = 100;
         sword = new Weapon("dagger");
         killedM = 0;
-        armor = new Armor("trousers");
+        //armor = new Armor();
         hides = 0;
         xp = 0;
     }
@@ -26,7 +30,7 @@ public class Hero{
         health = 100;
         sword = new Weapon("dagger");
         killedM = 0;
-        armor = new Armor("trousers");
+        //armor = new Armor("trousers");
         hides = 0;
         xp = 0;
     }
@@ -101,6 +105,46 @@ public class Hero{
     
     public void setShowPpl(boolean p){
         showPpl = p;
+    }
+    
+    public void setNumP(String t, int amt){
+        if ( t.equals("half") ){
+            nofH += amt;
+        }else if ( t.equals("full") ){
+            nofF += amt;
+        }else if ( t.equals("phoenix") ){
+            nofP += amt;
+        }
+    } 
+    
+    public boolean hasPotion(String t){
+        boolean ret = false;
+        if ( t.equals("half") ){
+            if ( nofH != 0 ){
+                ret = true;
+            }
+        }else if ( t.equals("full") ){
+            if ( nofF != 0 ){
+                ret = true;
+            }
+        }else if ( t.equals("phoenix") ){
+            if ( nofP != 0 ){
+                ret = true;
+            }
+        }
+        return ret;
+    }
+    
+    public void setNumBo(int amt){
+        numBombs += amt;
+    }
+    
+    public boolean hasBomb(){
+        boolean ret = false;
+        if (numBombs != 0){
+            ret = true;
+        }
+        return ret;
     }
     //when we add a display screen, we should add the # of hides we have on here
 }
