@@ -1,4 +1,4 @@
-/*import java.io.*;
+import java.io.*;
 import java.util.*;
 public class Driver{
     //used to indicate which farmer is being interacted with
@@ -11,18 +11,32 @@ public class Driver{
         Hero hero = new Hero();
 
         ArrayList<Potion> potions = new ArrayList<Potion>();
-        Potion p1 = new Potion();
-        Potion p2 = new Potion();
-        potions.add(p1);
-        potions.add(p2);
 
-        ArrayList<Monster> monsters = new ArrayList<Monster>();
+        //ArrayList<Monster> monsters = new ArrayList<Monster>();
+        ArrayList<Boss> bosses = new ArrayList<Boss>();
+        Boss sphinx = new Boss("Sphinx", 4, 4);
+        Boss chimera = new Boss("Chimera", 5, 5);
+        Boss dragon = new Boss("Dragon", 6, 6);
+        Boss finalBoss = new Boss("Final Boss", 7, 7);
+        bosses.add(sphinx);
+        bosses.add(chimera);
+        bosses.add(dragon);
+        bosses.add(finalBoss);
 
         ArrayList<Farmer> farmers = new ArrayList<Farmer>();
         Farmer f1 = new Farmer();
+        System.out.println(f1.getX() + ", " + f1.getY());
         Farmer f2 = new Farmer();
+        Farmer f3 = new Farmer();
+        Farmer f4 = new Farmer();
+        Farmer f5 = new Farmer();
+        Farmer f6 = new Farmer();
         farmers.add(f1);
         farmers.add(f2);
+        farmers.add(f3);
+        farmers.add(f4);
+        farmers.add(f5);
+        farmers.add(f6);
 
         int worldSize = 15;
 
@@ -34,32 +48,33 @@ public class Driver{
         //fill map with objects
         map[hero.getY()][hero.getX()] = hero;
         printedMap[hero.getY()][hero.getX()] = "H  ";
-        /*for(Monster obj: monsters){
-        while(map[obj.getX()][obj.getY()] != null){
-        obj.setX((int)(Math.random() * worldSize));
-        obj.setY((int)(Math.random() * worldSize)); 
-        }
-        map[obj.getX()][obj.getY()] = obj;
-        printedMap[obj.getX()][obj.getY()] = "M  ";
-        }*//*
-        System.out.println("* The enemies have been placed *");
-        for(Potion obj: potions){
-            while(map[obj.getX()][obj.getY()] != null){
-                obj.setX((int)(Math.random() * worldSize));
-                obj.setY((int)(Math.random() * worldSize)); 
-            }
-            map[obj.getX()][obj.getY()] = obj;
-            printedMap[obj.getX()][obj.getY()] = "P  ";
-        }
-        System.out.println("* The items have been placed *\n");
         for(Farmer obj: farmers){
             while(map[obj.getX()][obj.getY()] != null){
                 obj.setX((int)(Math.random() * worldSize));
                 obj.setY((int)(Math.random() * worldSize)); 
             }
-            map[obj.getX()][obj.getY()] = obj;
-            printedMap[obj.getX()][obj.getY()] = "F  ";
+            map[obj.getY()][obj.getX()] = obj;
+            printedMap[obj.getY()][obj.getX()] = "F  ";            
         }
+        System.out.println("* The farmers have been generated *");
+        
+        for(Boss obj: bosses){
+            while(map[obj.getX()][obj.getY()] != null){
+                obj.setX((int)(Math.random() * worldSize));
+                obj.setY((int)(Math.random() * worldSize)); 
+            }
+            map[obj.getY()][obj.getX()] = obj;
+            if(obj.getName().equals("Chimera")){
+                printedMap[obj.getY()][obj.getX()] = "C  ";
+            } else if(obj.getName().equals("Sphinx")){
+                printedMap[obj.getY()][obj.getX()] = "S  ";
+            } else if(obj.getName().equals("Dragon")){
+                printedMap[obj.getY()][obj.getX()] = "D  ";
+            } else if (obj.getName().equals("Final Boss")){
+                printedMap[obj.getY()][obj.getX()] = "B  ";
+            }
+        }
+        System.out.println("* Enemies have been spawned *");
 
         //Storyline intro (add to this)
         System.out.println("Hero begins his journey");
@@ -78,20 +93,14 @@ public class Driver{
                 System.out.println("** Game Over **");
                 break;
                 //FIX
-            } else if(hero.getHealth() > 0 && hero.getKilledM() ==6){
-                //maybe have words
-                System.out.println("* Hero has defeated all the monsters *");
-                System.out.println("** You win! **");
-                break;
-            }
+            }/* MAKE SO WIN AFTER KILL 3 BOSSES
+            else if(hero.getHealth() > 0 && hero.getKilledM() ==6){
+            //maybe have words
+            System.out.println("* Hero has defeated all the monsters *");
+            System.out.println("** You win! **");
+            break;
+            }*/
             System.out.print("Enter direction (WASD): ");
-            for(Potion obj: potions){
-                if(obj.getInteracted() && !obj.getUsed()){
-                    potionHeroIsCarrying = obj;
-                    System.out.println("(To use your potion press P)");
-                    break;
-                }
-            }
 
             key = reads.next();
             oldX = hero.getX();
@@ -103,28 +112,29 @@ public class Driver{
                 if(hero.getY() - 1 < 0 || map[hero.getY() - 1][oldX] != null){
                     System.out.println("Hero cannot go there.");
                 } else {
-                    hero.setY(oldY - 1);
+                    hero.setY(hero.getY() - 1);
                 }
             } else if(key.equals("s")){
-                if(hero.getY() + 1 > 9 || map[hero.getY() + 1][oldX] != null){
+                if(hero.getY() + 1 > 14 || map[hero.getY() + 1][oldX] != null){
                     System.out.println("Hero cannot go there.");
                 } else {
-                    hero.setY(oldY + 1);
+                    hero.setY(hero.getY() + 1);
                 }
             } else if(key.equals("a")){
                 if(hero.getX() - 1 < 0 || map[oldY][hero.getX() - 1] != null){
                     System.out.println("Hero cannot go there.");
                 } else {
-                    hero.setX(oldX - 1);
+                    hero.setX(hero.getX() - 1);
                 }
             } else if(key.equals("d")){
-                if(hero.getX() + 1 > 9 || map[oldY][hero.getX() + 1] != null){
+                if(hero.getX() + 1 > 14 || map[oldY][hero.getX() + 1] != null){
                     System.out.println("Hero cannot go there.");
                 } else {
-                    hero.setX(oldX + 1);
+                    hero.setX(hero.getX() + 1);
                 }
+                //FIXXX
             } else if(key.equals("p")){
-                if(potionHeroIsCarrying.getInteracted() && !potionHeroIsCarrying.getUsed()){
+                if(!potionHeroIsCarrying.getUsed()){
                     potionHeroIsCarrying.healHero(hero);
                     numPHas--;
                 }
@@ -136,10 +146,12 @@ public class Driver{
             printedMap[oldY][oldX] = null;
             map[hero.getY()][hero.getX()] = hero;
             printedMap[hero.getY()][hero.getX()] = "H  ";
+            printMap(map, printedMap, worldSize, hero);
+            placeMonsters(map, printedMap,hero, worldSize);
             ArrayList<Integer>touched = touching(map, printedMap, hero);
-
+            
             //check if touching anything
-            if(touched.size() != 0){
+            if(touched.size() > 0){
                 differentiate(touching(map, printedMap, hero), map, printedMap, hero, worldSize);
             } else {
                 printMap(map, printedMap, worldSize, hero);
@@ -153,7 +165,6 @@ public class Driver{
         String str = "";
         Monster m;
         Farmer f;
-        Potion p;
         for(int i=0; i< worldSize; i++){
             for(k=0; k< worldSize; k++){
                 if(map[i][k] == null){
@@ -164,11 +175,8 @@ public class Driver{
                     }
                     if(printedMap[i][k] == "M  "){
                         m = (Monster)map[i][k];
-                        if(m.getInteracted()){
-                            str += printedMap[i][k];
-                        } else {
-                            str += "–  ";
-                        }
+                        str += printedMap[i][k];
+                        //System.out.println("Monster hasbeen printed");
                     } else if(printedMap[i][k] == "F  "){
                         f = (Farmer)map[i][k];
                         if(f.getInteracted()){
@@ -176,28 +184,70 @@ public class Driver{
                         } else {
                             str += "–  ";
                         }
-                    } else if(printedMap[i][k] == "P  "){
-                        p = (Potion)map[i][k];
-                        if(p.getInteracted()){
-                            str += printedMap[i][k];
-                        } else {
-                            str += "–  ";
-                        }
-                    } 
+                    }
                 }
             }
             str += "\n";
         }
-        System.out.println(str);
-        System.out.println("Hero's Items: \n\tArmor: " + h.getArmor().getType()
-            + "  Weapon: " + h.getWeapon().getType()
-            + "  Potions: " + numPHas + "\n");
 
+        System.out.println(str);
+        System.out.println("Hero's Items: \n\tArmor: " + h.getArmor().getType()+ "  Weapon: " + h.getWeapon().getType()+ "  Potions: " + numPHas + "\n");
+
+    }
+
+    public static void placeMonsters(Object[][] map, String[][] printedMap, Hero h, int worldSize){
+        //ArrayList<Monster> monsters = new ArrayList<Monster>();
+        Monster m;
+        int num = (int)(Math.random()*4);
+        if(Math.random() < 0.2){
+            //System.out.println("(" + h.getY() + ", " + h.getX() + ")");
+            //monster on top of hero
+            if(num == 0 && h.getY() - 1 >= 0 && map[h.getY() - 1][h.getX()] == null){
+                m = new Monster(h.getX(), h.getY() - 1);
+                map[m.getY()][m.getX()] = m;
+                printedMap[m.getY()][m.getX()] = "M  ";
+                //printMap(map, printedMap, worldSize, h);
+                //m.interact(h);
+                //System.out.println("aaaaaaaaa");
+                //System.out.println(m.getX() + ", " + m.getY());
+            }
+            //monster below hero
+            else if(num == 1 && h.getY() + 1 < 15 && map[h.getY() + 1][h.getX()] == null){
+                m = new Monster(h.getX(), h.getY() + 1);
+                map[m.getY()][m.getX()] = m;
+                printedMap[m.getY()][m.getX()] = "M  ";
+                //printMap(map, printedMap, worldSize, h);
+                //m.interact(h);
+                //System.out.println("bbbbbbbbb");
+                //System.out.println(m.getX() + ", " + m.getY());
+            }
+            //monster to the left of hero
+            else if(num == 2 && h.getX() - 1 >= 0 && map[h.getY()][h.getX() - 1] == null){
+                m = new Monster(h.getX() - 1, h.getY());
+                map[m.getY()][m.getX()] = m;
+                printedMap[m.getY()][m.getX()] = "M  ";
+                //printMap(map, printedMap, worldSize, h);
+                //m.interact(h);
+                //System.out.println("cccccccccc");
+                //System.out.println(m.getX() + ", " + m.getY());
+            }
+            //monster to the left of hero
+            else if(num == 3 && h.getX() + 1 < 15 && map[h.getY()][h.getX() + 1] == null){
+                m = new Monster(h.getX() + 1, h.getY());
+                map[m.getY()][m.getX()] = m;
+                printedMap[m.getY()][m.getX()] = "M  ";
+                //printMap(map, printedMap, worldSize, h);
+                //m.interact(h);
+                //System.out.println("ddddddddd");
+                //System.out.println(m.getX() + ", " + m.getY());
+            }
+            //System.out.println(h.getX() + ", " + h.getY());
+        }
     }
 
     public static ArrayList<Integer> touching(Object[][] map, String[][] printedMap, Hero h){
         ArrayList<Integer> interactedPos = new ArrayList<Integer>();
-        if(h.getY()+1 <= 9 && map[h.getY()+1][h.getX()] != null){
+        if(h.getY()+1 <= 14 && map[h.getY()+1][h.getX()] != null){
             interactedPos.add(h.getY()+1);
             interactedPos.add(h.getX());
         }
@@ -207,7 +257,7 @@ public class Driver{
             interactedPos.add(h.getX());
         }
 
-        if(h.getX()+1 <= 9 && map[h.getY()][h.getX()+1] != null){
+        if(h.getX()+1 <= 14 && map[h.getY()][h.getX()+1] != null){
             interactedPos.add(h.getY());
             interactedPos.add(h.getX()+1);
         }
@@ -223,54 +273,22 @@ public class Driver{
     public static void differentiate(ArrayList<Integer> touchedPos, Object[][] map, String[][] printedMap, Hero h, int worldSize){
         //Scanner reads = new Scanner(System.in);
         ArrayList<Monster> monsters = new ArrayList<Monster>();
-        ArrayList<Potion> potions = new ArrayList<Potion>();
         ArrayList<Farmer> farmers = new ArrayList<Farmer>();
-        //Monster m;
-        Potion p;
+        ArrayList<Boss> bosses = new ArrayList<Boss>();
+        Monster m;
+        Boss b;
         Farmer f;
-        //monster on top of hero
-        if(Math.random() <0.9 && h.getY() - 1 >= 0){
-            Monster mT = new Monster(h.getX(), h.getY() - 1);
-            mT.setInteracted(true);
-            monsters.add(mT);
-            map[mT.getX()][mT.getY()] = mT;
-            printedMap[mT.getX()][mT.getY()] = "M  ";
-        }
-        //monster below hero
-        if(Math.random() < 0.9 && h.getY() + 1 < 15){
-            Monster mB = new Monster(h.getX(), h.getY() + 1);
-            mB.setInteracted(true);
-            monsters.add(mB);
-            map[mB.getX()][mB.getY()] = mB;
-            printedMap[mB.getX()][mB.getY()] = "M  ";
-        }
-        //monster to the left of hero
-        if(Math.random() <0.9 && h.getX() - 1 >= 0){
-            Monster mL = new Monster(h.getX() - 1, h.getY());
-            mL.setInteracted(true);
-            monsters.add(mL);
-            map[mL.getX()][mL.getY()] = mL;
-            printedMap[mL.getX()][mL.getY()] = "M  ";
-        }
-        //monster to the left of hero
-        if(Math.random() <0.9 && h.getX() + 1 < 15){
-            Monster mR = new Monster(h.getX() + 1, h.getY());
-            mR.setInteracted(true);
-            monsters.add(mR);
-            map[mR.getX()][mR.getY()] = mR;
-            printedMap[mR.getX()][mR.getY()] = "M  ";
-        }
+
         for(int i=0; i < touchedPos.size(); i+=2){
-            /*if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("M  ")){
-            m = (Monster)map[touchedPos.get(i)][touchedPos.get(i+1)];
-            m.setInteracted(true);
-            monsters.add(m);
-            } else *//*
-            if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("P  ")){
-                p = (Potion)map[touchedPos.get(i)][touchedPos.get(i+1)];
-                p.setInteracted(true);
-                potions.add(p);
-            } else if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("F  ")){
+            if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("C  ") || printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("S  ") ||printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("D  ")||printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("B  ")){
+                b = (Boss)map[touchedPos.get(i)][touchedPos.get(i+1)];
+                b.setInteracted(true);
+                bosses.add(b);
+            }else if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("M  ")){
+                m = (Monster)map[touchedPos.get(i)][touchedPos.get(i+1)];
+                m.setInteracted(true);
+                monsters.add(m);
+            }else if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("F  ")){
                 f = (Farmer)map[touchedPos.get(i)][touchedPos.get(i+1)];
                 f.setInteracted(true);
                 farmers.add(f);
@@ -278,15 +296,10 @@ public class Driver{
         }
         //prints map
         printMap(map, printedMap, worldSize, h);
-        interact(monsters, potions, farmers, h);
+        interact(monsters, farmers, h);
     }
 
-    public static void interact(ArrayList<Monster> mo, ArrayList<Potion> po, ArrayList<Farmer> fa, Hero h){
-        for(Potion p: po){
-            p.interact();
-            numPHas++;
-        }
-
+    public static void interact(ArrayList<Monster> mo, ArrayList<Farmer> fa, Hero h){
         for(Farmer f: fa){
             numF++;
             if(numF==1){
@@ -307,5 +320,5 @@ public class Driver{
             return false;
         }
     }
-}*/
+}
 

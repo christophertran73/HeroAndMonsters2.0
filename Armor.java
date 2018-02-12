@@ -1,26 +1,30 @@
 public class Armor extends Item{
+    private int numItems;
     private double defense;
     
     public Armor(){
         super();
+        numItems = 0;
         defense = 0;
     }
     
     public Armor(String t){
         super(t, 0);
-        setDANDP(t);
+        setSet(t);
     }
     
-    public void setDANDP(String t){
-        if ( t.equals("wood") ){
-            defense = .20;
-            setPrice(2);
-        }else if ( t.equals("metal") ){
-            defense = .50;
+    public void setSet(String t){
+        if ( t.equals("trousers") ){
+            numItems = 2;
+            setPrice(0);
+        }else if ( t.equals("satchel") ){
+            numItems = 6;
             setPrice(3);
+        }else if ( t.equals("breastplate") ){
+            defense = 0.20;
+            setPrice(2);
         }else{
-            defense = .10;
-            setPrice(1);
+            setPrice(3);
         }
     }
     
@@ -28,5 +32,7 @@ public class Armor extends Item{
         return defense;
     }
 }
+
+
 
 
