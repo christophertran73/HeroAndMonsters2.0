@@ -5,7 +5,11 @@ comment1.target=Hero()
 comment10.params=
 comment10.target=int\ getXP()
 comment11.params=
+<<<<<<< HEAD
 comment11.target=int\ getGold()
+=======
+comment11.target=boolean\ getShowPpl()
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63
 comment12.params=x
 comment12.target=void\ setX(int)
 comment13.params=y
@@ -14,8 +18,13 @@ comment14.params=s
 comment14.target=void\ setWeapon(Weapon)
 comment15.params=h
 comment15.target=void\ setHealth(double)
+<<<<<<< HEAD
 comment16.params=kB
 comment16.target=void\ setKilledB(int)
+=======
+comment16.params=kM
+comment16.target=void\ setKilledM(int)
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63
 comment17.params=a
 comment17.target=void\ setArmor(Armor)
 comment18.params=h
@@ -24,6 +33,7 @@ comment19.params=experience
 comment19.target=void\ setXP(int)
 comment2.params=x\ y
 comment2.target=Hero(int,\ int)
+<<<<<<< HEAD
 comment20.params=g
 comment20.target=void\ setGold(int)
 comment21.params=t\ amt
@@ -42,6 +52,18 @@ comment27.params=b
 comment27.target=void\ setBP(boolean)
 comment28.params=
 comment28.target=boolean\ getNOA()
+=======
+comment20.params=p
+comment20.target=void\ setShowPpl(boolean)
+comment21.params=t\ amt
+comment21.target=void\ setNumP(java.lang.String,\ int)
+comment22.params=t
+comment22.target=boolean\ hasPotion(java.lang.String)
+comment23.params=amt
+comment23.target=void\ setNumBo(int)
+comment24.params=
+comment24.target=boolean\ hasBomb()
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63
 comment3.params=
 comment3.target=int\ getX()
 comment4.params=
@@ -56,4 +78,8 @@ comment8.params=
 comment8.target=Armor\ getArmor()
 comment9.params=
 comment9.target=int\ getHides()
+<<<<<<< HEAD
 numComments=29
+=======
+numComments=25
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63

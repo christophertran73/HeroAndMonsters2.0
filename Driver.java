@@ -48,6 +48,7 @@ public class Driver{
         //fill map with objects
         map[hero.getY()][hero.getX()] = hero;
         printedMap[hero.getY()][hero.getX()] = "H  ";
+<<<<<<< HEAD
         for(Farmer obj: farmers){
             while(map[obj.getX()][obj.getY()] != null){
                 obj.setX((int)(Math.random() * worldSize));
@@ -59,6 +60,10 @@ public class Driver{
         System.out.println("* The farmers have been generated *");
         
         for(Boss obj: bosses){
+=======
+        
+        for(Farmer obj: farmers){
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63
             while(map[obj.getX()][obj.getY()] != null){
                 obj.setX((int)(Math.random() * worldSize));
                 obj.setY((int)(Math.random() * worldSize)); 
@@ -74,7 +79,11 @@ public class Driver{
                 printedMap[obj.getY()][obj.getX()] = "B  ";
             }
         }
+<<<<<<< HEAD
         System.out.println("* Enemies have been spawned *");
+=======
+        System.out.println("The farmers have been generated.");
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63
 
         //Storyline intro (add to this)
         System.out.println("Hero begins his journey");
@@ -179,7 +188,7 @@ public class Driver{
                         //System.out.println("Monster hasbeen printed");
                     } else if(printedMap[i][k] == "F  "){
                         f = (Farmer)map[i][k];
-                        if(f.getInteracted()){
+                        if(f.getInteracted() && h.getShowPpl()){
                             str += printedMap[i][k];
                         } else {
                             str += "–  ";
@@ -280,6 +289,7 @@ public class Driver{
         Farmer f;
 
         for(int i=0; i < touchedPos.size(); i+=2){
+<<<<<<< HEAD
             if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("C  ") || printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("S  ") ||printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("D  ")||printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("B  ")){
                 b = (Boss)map[touchedPos.get(i)][touchedPos.get(i+1)];
                 b.setInteracted(true);
@@ -289,6 +299,18 @@ public class Driver{
                 m.setInteracted(true);
                 monsters.add(m);
             }else if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("F  ")){
+=======
+            if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("M  ")){
+            m = (Monster)map[touchedPos.get(i)][touchedPos.get(i+1)];
+            m.setInteracted(true);
+            monsters.add(m);
+            } else 
+            if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("P  ")){
+                p = (Potion)map[touchedPos.get(i)][touchedPos.get(i+1)];
+                p.setInteracted(true);
+                potions.add(p);
+            } else if(printedMap[(int)(touchedPos.get(i))][(int)(touchedPos.get(i+1))].equals("F  ")){
+>>>>>>> d6349c8451da8ae554c3392913a1a88a8b8d7a63
                 f = (Farmer)map[touchedPos.get(i)][touchedPos.get(i+1)];
                 f.setInteracted(true);
                 farmers.add(f);
@@ -321,4 +343,6 @@ public class Driver{
         }
     }
 }
+
+
 

@@ -43,7 +43,7 @@ public class Potion extends Item{
         }else{
             setPrice(1);
         }
-    }
+    }  
     
     public void healHero(Hero h){
         //h.setHealth(heal);
